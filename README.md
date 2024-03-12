@@ -12,7 +12,7 @@ example = Figure()
 ```
 
 ## Классы и их методы
-# Figure (Родительский класс)
+### Figure (Родительский класс)
 
 Примечание:
 example - объект класса Figure
@@ -60,7 +60,7 @@ for j in range(len(example)):
 Где (speed) - количество пикселей, пройденных за кадр. Коэфиценты [-∞ -> +∞]
 
 
-# Block, Circle (дочерние Figure)
+### Block, Circle (дочерние Figure)
 ```
 example = Circle()
 example = Block()
