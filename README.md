@@ -23,6 +23,7 @@ examples[i] - i-тый элемент array, состоящего из объе�
 Figure(self, screen, x, y)
 ```
 (x,y) - размер объекта
+
 screen - pygame.display.set_mode(RESOLUTION)
 
 **Обновление экрана**
