@@ -8,13 +8,13 @@ import Figure
 ```
 Создайте объект класса
 ```
-example = Figure()
+example = Block() # либо example = Circle()
 ```
 
 ## Классы и их методы
 ### Figure (Родительский класс)
 
-Примечание:
+**Примечание**:
 
 example - объект класса Figure
 
@@ -67,10 +67,41 @@ for j in range(len(example)):
 Коэфиценты [-∞ -> +∞]
 
 
-### Block, Circle (дочерние Figure)
+### Block (дочерний Figure)
 ```
-example = Circle()
-example = Block()
+example = Block(self, screen, x, y, width, height)
+```
+
+Где (screen) - pygame.display.set_mode(RESOLUTION),
+
+(x, y) - размеры объекта
+
+(width, height) - screen.get_width(), screen.get_height()
+
+### Circle (дочерний Figure)
+```
+example = Block(self, screen, x, y, rad)
+```
+
+Где (screen) - pygame.display.set_mode(RESOLUTION),
+
+(x, y) - размеры объекта
+
+(rad) - радиус объекта.
+
+**Примечание:**
+
+rect() в pygame пишется из левой крайней точки, а circle() из центра.
+
+Чтобы вписать окружность в квадрат стоит следовать формуле:
+
+``` self.hrect = pygame.draw.rect(self.screen, self.color, (self.x-self.rad, self.y-self.rad, self.rad*2, self.rad*2), 250) ```,
+
+что эквивалентно:
+
+```self.hrect = pygame.draw.rect(self.screen, self.color, (self.x, self.y, self.width, self.height), self.border)```
+
+
 **Хитбоксы**
 | Метод | Описание |
 |---|---|
