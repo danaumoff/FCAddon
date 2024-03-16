@@ -90,15 +90,12 @@ class Block(Figure):
             self.loss_reset_y()
             self.y_speed = -self.y_speed * self.loss
             self.y = screen_height - self.height - self.block_inaccuracy
-
-
+    def update(self):
+        self.rect = pygame.draw.rect(self.screen, self.color, (self.x, self.y, self.width, self.height), self.border)
 
     def hitbox_update(self):
-        self.hrect = pygame.draw.rect(self.screen, self.color, (self.x, self.y, self.width, self.height), self.border)
-
-    def update(self):
         super().update()
-        self.rect = pygame.draw.rect(self.screen, self.color, (self.x, self.y, self.width, self.height), self.border)
+        self.hrect = pygame.draw.rect(self.screen, self.color, (self.x, self.y, self.width, self.height), self.border)
 
 class Circle(Figure):
 
@@ -124,11 +121,11 @@ class Circle(Figure):
             self.loss_reset_y()
             self.y_speed = -self.y_speed * self.loss
 
-
+    def update(self):
+        pygame.draw.circle(self.screen, self.color, (self.x, self.y), self.rad)
     def hitbox_update(self):
+        super().update()
         self.hrect = pygame.draw.rect(self.screen, self.color, (self.x-self.rad, self.y-self.rad, self.rad*2, self.rad*2), 250)
 
-    def update(self):
-        super().update()
-        pygame.draw.circle(self.screen, self.color, (self.x, self.y), self.rad)
+
 
